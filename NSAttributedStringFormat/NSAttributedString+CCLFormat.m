@@ -171,6 +171,8 @@ NSArray *CCLFormatStringParser(NSString *format, NSUInteger *maxPosition) {
                 arg = argCopy;
             }
             [attributedString replaceCharactersInRange:parseResult.range withAttributedString:arg];
+        } else if ([arg isKindOfClass:[NSString class]]) {
+            [attributedString replaceCharactersInRange:parseResult.range withString:arg];
         } else {
             [attributedString replaceCharactersInRange:parseResult.range withString:[arg description]];
         }
